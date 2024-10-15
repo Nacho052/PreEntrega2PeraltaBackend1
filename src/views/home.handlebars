@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="d-flex justify-content-evenly ">
+    {{#each products}}
+        <div class="card border-warning bg-secondary mb-5" style="width: 18rem;">
+            <img src="{{this.thumbnails.[0]}}" class="card-img-top" alt="...">
+            <div class="card-body mt-5">
+                <h5 class="card-title">{{this.title}}</h5>
+                <p class="card-text">{{this.description}}</p>
+                <h6>-Category: {{this.category}}</h6>
+                <h6>-Stock: {{this.stock}}</h6>
+                <h6>-Code: {{this.code}}</h6>
+                <h6>-Status: {{this.status}}</h6>
+                <h6>-Price: ${{this.price}}</h6>
+            </div>
+        </div>
+    {{/each}}
+    </div>
+</div>

@@ -1,0 +1,96 @@
+<div class="container">
+    <h1 class="text-center">Tiempo Real</h1>
+    <div class="row">
+        <div class="col-4">
+            <div class="card bg-dark text-white border-light mb-5">
+                <div class="card-header bg-warning">
+                    <h2 class="h5 mb-0">Productos Existentes</h2>
+                </div>
+                <div class="card-body">
+                    <div id="productList" class="list-group list-group-flush">
+                        {{#each products}}
+                            <div>
+                                <h3>{{this.category}}</h3>
+                                <span>{{this.title}}- ID: {{this.id}}</span>
+                                <p>Price: ${{this.price}}</p>
+                                <p>Stock: {{this.stock}}</p>
+                            </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card bg-dark text-white border-light mb-4">
+                <div class="card-header bg-primary">
+                    <h2 class="h5 mb-0">Productos Agregados</h2>
+                </div>
+                <div class="card-body">
+                    <ul id="productAddedList" class="list-group list-group-flush"></ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card bg-dark text-white border-light mb-4">
+                <div class="card-header bg-danger">
+                    <h2 class="h5 mb-0">Productos Eliminados</h2>
+                </div>
+                <div class="card-body">
+                    <ul id="productDeletedList" class="list-group list-group-flush"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"
+    integrity="sha384-2huaZvOR9iDzHqslqwpR87isEmrfxqyWOF7hr7BY6KG0+hVKLoEXMPUJw3ynWuhO"
+    crossorigin="anonymous"></script>
+<script type="module">
+    const url = '';
+    const options = {};
+    const productList = document.getElementById('productList');
+    const productAddedList = document.getElementById('productAddedList');
+    const productDeletedList = document.getElementById('productDeletedList');
+    const socketClient = io(url, options);
+
+    socketClient.on('connect', async () => {
+        socketClient.emit('new_user_data', {});
+    });
+
+    socketClient.on('new_product', data => {
+        console.log(data);
+        productAddedList.innerHTML += `
+        <div>
+            <h3>${data.category}</h3>
+            <span>${data.title} - ID: ${data.id}</span>
+            <p>Price: $${data.price}</p>
+            <p>Stock: ${data.stock}</p>
+        </div>`;
+});
+
+    socketClient.on('delete_product', data => {
+        console.log(data);
+        productDeletedList.innerHTML += `
+        <div>
+            <h3>${data.category}</h3>
+            <span>${data.title} - ID: ${data.id}</span>
+            <p>Price: $${data.price}</p>
+            <p>Stock: ${data.stock}</p>
+        </div>`;
+});
+
+    socketClient.on('products', data => {
+        console.log(data);
+        productList.innerHTML = '';
+        data.forEach(product => {
+            productList.innerHTML += `
+            <div>
+                <h3>${product.category}</h3>
+                <span>${product.title} - ID: ${product.id}</span>
+                <p>Price: $${product.price}</p>
+                <p>Stock: ${product.stock}</p>
+            </div>`;
+    });
+    });
+</script>

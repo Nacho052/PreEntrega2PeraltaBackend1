@@ -1,0 +1,41 @@
+[
+  {
+    "id": 1,
+    "title": "BOTIN",
+    "description": "calzado con tapones",
+    "code": "Nh4u8stx0",
+    "price": 12000,
+    "status": true,
+    "stock": 24,
+    "category": "ropa",
+    "thumbnails": [
+      "https://imgs.search.brave.com/x_nc_1P7iuYtFTvu4qYlrJ26GC2V63ywqGpMFpIOBn8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/ZnV0Ym9sZW1vdGlv/bi5jb20vaW1hZ2Vz/YXJ0aWN1bG9zLzIy/NTcxNi9tZWRpYW5h/cy9ib3RhLXB1bWEt/ZnV0dXJlLTctdWx0/aW1hdGUtbWctZ3Jh/eS1za2llcy13aGl0/ZS1maXp6eS1hcHBs/ZS0xLndlYnA"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "REMERA",
+    "description": "camiseta negra con lineas blancas",
+    "code": "U8hBñkG83",
+    "price": 7000,
+    "status": true,
+    "stock": 3,
+    "category": "ropa",
+    "thumbnails": [
+      "https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/7db57e9f7e1344b8bfecace92ef28dd9_9366/remera-adicolor-pique-futbol-manga-larga.jpg"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "AGUA",
+    "description": "Agua mineral",
+    "code": "hUS73B0sv",
+    "price": 750,
+    "status": true,
+    "stock": 41,
+    "category": "FastFood",
+    "thumbnails": [
+      "https://imgs.search.brave.com/L2-xpkq0yigxE7zIeqesPfvfi53ZrSzgHeYrfU-QiPU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/MzFqd2poY2xjRkwu/anBn"
+    ]
+  }
+]
